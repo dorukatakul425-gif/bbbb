@@ -184,6 +184,7 @@ function Index() {
         {icon("Gift", gift, "gift-control")}
         <Button variant="reference" size="reference" className="send-control" type="submit" aria-label="Send message" onPointerDown={(event) => event.preventDefault()}><img src={send} alt="" /></Button>
       </form>
+      <div className="message-bar-spacer" />
       <HeartShop open={heartShopOpen} onOpenChange={setHeartShopOpen} />
       <VideoMusicPopup open={videoMusicOpen} onOpenChange={setVideoMusicOpen} onPlay={playTrack} recentTracks={recentTracks} />
     </main>
