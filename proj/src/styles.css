@@ -173,7 +173,7 @@
   }
 }
 
-.bottle-app { position: fixed; top: var(--chat-viewport-top, 0px); left: 0; right: 0; width: 100%; height: var(--chat-viewport-height, 100dvh); display: flex; flex-direction: column; overflow: hidden; padding-bottom: env(safe-area-inset-bottom, 0px); }
+.bottle-app { position: fixed; top: var(--chat-viewport-top, 0px); left: 0; right: 0; width: 100%; height: var(--chat-viewport-height, 100dvh); display: flex; flex-direction: column; overflow: hidden; }
 .game-chat-scroll { flex: 1; min-height: 0; display: flex; flex-direction: column; overflow-y: auto; overscroll-behavior: contain; overflow-anchor: none; scrollbar-width: none; }
 .game-chat-scroll::-webkit-scrollbar { display: none; }
 .wood-table { position: relative; width: 100%; aspect-ratio: 768 / 863; flex: none; container-type: inline-size; overflow: hidden; color: var(--table-foreground); }
@@ -215,7 +215,8 @@
 .music-control { top: 12.5cqw; }
 .chat-messages { padding: 3cqw 14cqw 3cqw 3.5cqw; font-size: 2.6cqw; color: var(--chat-message); overflow-wrap: anywhere; }
 .chat-messages p { margin: 0 0 1cqw; }
-.message-bar { display: flex; align-items: center; width: 100%; aspect-ratio: 768 / 77; flex: none; background: var(--message-surface); container-type: inline-size; border-top: 1px solid var(--border); padding: 0 1.43%; gap: 2.6%; padding-bottom: env(safe-area-inset-bottom, 0px); }
+.message-bar { display: flex; align-items: center; width: 100%; aspect-ratio: 768 / 77; flex: none; background: var(--message-surface); container-type: inline-size; border-top: 1px solid var(--border); padding: 0 1.43%; gap: 2.6%; }
+.message-bar-spacer { flex: none; width: 100%; height: env(safe-area-inset-bottom, 20px); background: var(--message-surface); }
 .message-bar input { min-width: 0; flex: 1; border: 0; outline: none; background: transparent; color: var(--foreground); font-family: inherit; font-size: max(16px, 3.39cqw); padding: 0 0 0 2.08cqw; height: 100%; }
 .message-bar input::placeholder { color: var(--chat-placeholder); opacity: 1; }
 .message-bar .puzzle-control { width: 6.12%; flex: none; }
