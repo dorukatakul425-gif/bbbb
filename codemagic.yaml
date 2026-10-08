@@ -1,0 +1,43 @@
+workflows:
+  android-build:
+    name: Android Build
+    max_build_duration: 60
+    environment:
+      java: 17
+      node: 20
+    scripts:
+      - name: Install Bun
+        script: |
+          curl -fsSL https://bun.sh/install | bash
+          export BUN_INSTALL="$HOME/.bun"
+          export PATH="$BUN_INSTALL/bin:$PATH"
+
+      - name: Install dependencies
+        script: |
+          export BUN_INSTALL="$HOME/.bun"
+          export PATH="$BUN_INSTALL/bin:$PATH"
+          cd proj
+          bun install
+
+      - name: Build web
+        script: |
+          export BUN_INSTALL="$HOME/.bun"
+          export PATH="$BUN_INSTALL/bin:$PATH"
+          cd proj
+          bun run build
+
+      - name: Capacitor sync
+        script: |
+          export BUN_INSTALL="$HOME/.bun"
+          export PATH="$BUN_INSTALL/bin:$PATH"
+          cd proj
+          bunx cap sync android
+
+      - name: Build APK
+        script: |
+          cd proj/android
+          chmod +x gradlew
+          ./gradlew assembleDebug
+
+    artifacts:
+      - proj/android/app/build/outputs/apk/debug/app-debug.apk
